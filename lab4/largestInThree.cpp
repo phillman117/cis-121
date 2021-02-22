@@ -54,6 +54,10 @@ int main() {
     //initiallize variables for calculations
     double average;
     int remainder;
+    //set output to include the hundredths regardless of value provided
+    cout.setf(ios::fixed);
+    cout.setf(ios::showpoint);
+    cout.precision(2);
 
     //Begin int a calculations
     cout << "Please enter an integer: ";
