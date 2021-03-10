@@ -18,11 +18,16 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////
  
 #include<iostream>
+using namespace std;
+
 
 int main () {
+    cout.setf(ios::fixed);
+    cout.setf(ios::showpoint);
+    cout.precision(2);
 
     int numQuarters, numNickles, numDimes;
-    int quarterValue=25, nickelValue=5, dimeValue=10;
+    double quarterValue=.25, nickelValue=.05, dimeValue=.10;
     double totalWorth;
 
     std::cout << "Enter number of quarters, then dimes, then nickels: ";
