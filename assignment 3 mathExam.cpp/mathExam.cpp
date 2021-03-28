@@ -73,7 +73,9 @@ using namespace::std;
 void introExplaination();
 void generateExpression(float& a, float& b, int& c, float& studentAnswer, int& questionCounter, int& incorrectAnswerCounter);
 void evaluateAnswer(float c, float& studentAnswer);
-void calculateScore(int questionCounter, int incorrectAnswerCounter);
+void calculateScore(int questionCounter, int incorrectAnswerCounter, int passingScore);
+
+const float passingScore = 0.75;
 
 int main(){
     //initialize variables for math question
@@ -116,7 +118,7 @@ int main(){
     //calculate score    
     cout << "\nQuestions asked = " << questionCounter << endl;
     cout << "Incorrect answers given = " << incorrectAnswerCounter << endl;
-    calculateScore(questionCounter, incorrectAnswerCounter);
+    calculateScore(questionCounter, incorrectAnswerCounter, passingScore);
     
     //ask if user wishes to repeat the exam
     cout << "Would you like to take another exam? (y or n)";
@@ -238,14 +240,14 @@ void evaluateAnswer(float c, float& studentAnswer) {
     } while(responseGenerator >= 4);
 }
 
-void calculateScore(int questionCounter, int incorrectAnswerCounter) {
+void calculateScore(int questionCounter, int incorrectAnswerCounter, int passingScore) {
 
     int correctAnswers = questionCounter - incorrectAnswerCounter;
     float score = correctAnswers * 1.0 / questionCounter;
 
     cout << "Your score is " << score << "\n";
 
-    if(score < .75)
+    if(score < passingScore)
         cout << "Sorry, you need a score of .75 or higher. Please study and try again.\n";
     else
        cout << "You've passed the test, great job! Keep up the good work!\n";
